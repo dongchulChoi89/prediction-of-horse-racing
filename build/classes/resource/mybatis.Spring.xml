@@ -6,10 +6,13 @@
 
 	<typeAliases>
 		<typeAlias alias="horse" type="finalhorse.vo.Horse"/>
+		<typeAlias alias="user" type="finalhorse.vo.User"/>
+		<typeAlias alias="userSch" type="finalhorse.vo.UserSch"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="resource/HorseMapper.xml"/>
+		<mapper resource="resource/UserMapper.xml"/>
 	</mappers>
 	
 </configuration>

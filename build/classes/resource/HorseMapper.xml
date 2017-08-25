@@ -3,6 +3,6 @@
 <mapper namespace="finalhorse.repository.HorseDao">
 	<resultMap type="horse" id="horseSchResult" />
 	<select id="listHorse" resultMap="horseSchResult">
-		select * from horse_info
+		select * from (select rownum, A.* from horse_info A) where rownum <![CDATA[ <= ]]> 10
 	</select>
 </mapper>
