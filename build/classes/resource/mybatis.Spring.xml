@@ -6,6 +6,7 @@
 
 	<typeAliases>
 		<typeAlias alias="horse" type="finalhorse.vo.Horse"/>
+		<typeAlias alias="horseRecord" type="finalhorse.vo.HorseRecord"/>
 		<typeAlias alias="user" type="finalhorse.vo.User"/>
 		<typeAlias alias="userSch" type="finalhorse.vo.UserSch"/>
 	</typeAliases>

@@ -2,7 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="finalhorse.repository.HorseDao">
 	<resultMap type="horse" id="horseSchResult" />
+	<resultMap type="horseRecord" id="horseRecResult" />
 	<select id="listHorse" resultMap="horseSchResult">
 		select * from (select rownum, A.* from horse_info A) where rownum <![CDATA[ <= ]]> 10
+	</select>
+	<select id="extractFiveHorse" resultMap="horseRecResult">
+		SELECT * FROM (SELECT * FROM HORSE_RECORD ORDER BY DBMS_RANDOM.RANDOM) WHERE ROWNUM <![CDATA[ <= ]]> 5
 	</select>
 </mapper>

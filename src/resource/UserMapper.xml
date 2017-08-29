@@ -21,4 +21,10 @@
 					PNAME LIKE '%' || #{pname} '%' || 
 				</if>
 	</select>
+	<select id="signIn" resultType="user" parameterType="userSch">
+		SELECT * FROM PLAYER_INFO WHERE PID = #{id} AND PASS = #{password}
+	</select>
+	<insert id="regId" parameterType="userSch">
+		INSERT INTO PLAYER_INFO VALUES()
+	</insert>
 </mapper>

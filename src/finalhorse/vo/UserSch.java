@@ -2,12 +2,31 @@ package finalhorse.vo;
 
 public class UserSch {
 	private String pname;
-	public String getPname(){
+	private String id;
+	private String password;
+
+	public String getPname() {
 		return pname;
 	}
+
 	public void setPname(String pname) {
 		this.pname = pname;
 	}
-	
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 }

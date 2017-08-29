@@ -11,14 +11,16 @@
 		<!-- Bootstrap Core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/bootstrap-toggle.min.css" rel="stylesheet">
-		
 		<link href="css/game.css?ver=3" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="css/jquery-ui.css">
+		<!-- Navbar CSS -->
+        <link rel="stylesheet" href="css/navbar.css">
 		
-		<!-- Custom CSS -->
-		<link href="css/stylish-portfolio.css" rel="stylesheet">
 	</head>
 	<body>
+	<!-- Header Start -->
+		<c:import url="header-to-main.jsp" />
+	<!-- Header End -->
 	<div id="game-container" class="container-fluid">
 		<div class="row">
 			<div id="finalResult" class=" table-responsive">
@@ -54,18 +56,14 @@
 								<td>5번 말</td>
 							</tr>
 							<tr align="center">
-							<c:set var="cntt" value="0" />
-							<c:forEach var="hl" items="${flist}">
-							
-								<td class="horseExplain" onclick="alloc('${hl.hname}','${hl.hnum }');"><img src="img/Horse__${cntt}.png"
+							<c:forEach var="hl" items="${fiveHorseList}" varStatus="status">
+								<td class="horseExplain" onclick="alloc('${hl.hname}','${hl.hnum }');"><img src="img/Horse__${status.index}.png"
 									class="horseImg img-responsive"><br>
 									마명 : ${hl.hname}<br>
 									누적 상금 : ${hl.totprize }<br><br>
 									1등 / 2등 / 3등<br>
 									${hl.first} / ${hl.second} / ${hl.third}
 								</td>
-							
-							<c:set var="cntt" value="${cntt+1}" />
 							</c:forEach>
 							</tr>
 						</table>
@@ -76,19 +74,19 @@
 						<table class="table table-condensed horseTable">
 							<tr>
 								<td>랭킹 1위:</td>
-								<td>${playerList[0].pid }</td>
+								<td>${userList[0].pid }</td>
 							</tr>
 							<tr>
 								<td>랭킹 2위:</td>
-								<td>${playerList[1].pid }</td>
+								<td>${userList[1].pid }</td>
 							</tr>
 							<tr>
 								<td>랭킹 3위:</td>
-								<td>${playerList[2].pid }</td>
+								<td>${userList[2].pid }</td>
 							</tr>
 							<tr>
 								<td>랭킹 4위:</td>
-								<td>${playerList[3].pid }</td>
+								<td>${userList[3].pid }</td>
 							</tr>
 							<tr>
 								<td>선택한 말</td>
@@ -142,8 +140,8 @@
 <script type="text/javascript" src="js/game_manager.js"></script>
 <script type="text/javascript" src="js/menu_manager.js"></script>
 <script type="text/javascript">
-	var horseNames=["${flist[0].hname}","${flist[1].hname}","${flist[2].hname}","${flist[3].hname}","${flist[4].hname}"];
-	var horseNums=["${flist[0].hnum}","${flist[1].hnum}","${flist[2].hnum}","${flist[3].hnum}","${flist[4].hnum}"];
+	var horseNames=["${fiveHorseList[0].hname}","${fiveHorseList[1].hname}","${fiveHorseList[2].hname}","${fiveHorseList[3].hname}","${fiveHorseList[4].hname}"];
+	var horseNums=["${fiveHorseList[0].hnum}","${fiveHorseList[1].hnum}","${fiveHorseList[2].hnum}","${fiveHorseList[3].hnum}","${fiveHorseList[4].hnum}"];
 	var player = [ {
 		id : "${user.pid}",
 		curMoney : parseInt('${user.curMoney}'),
@@ -153,33 +151,33 @@
 		hname: "",
 		realHorseNum:""
 	}, {
-		id : "${playerList[0].pid}",
-		curMoney : parseInt('${playerList[0].curMoney}'),
-		playerBetMoney :Math.floor(parseInt('${playerList[0].curMoney}')/4),
+		id : "${userList[0].pid}",
+		curMoney : parseInt('${userList[0].curMoney}'),
+		playerBetMoney :Math.floor(parseInt('${userList[0].curMoney}')/4),
 		benefit:0,
 		hnum : NaN,
 		hname: "",
 		realHorseNum:""
 	}, {
-		id : "${playerList[1].pid}",
-		curMoney : parseInt('${playerList[1].curMoney}'),
-		playerBetMoney :Math.floor(parseInt('${playerList[1].curMoney}')/4),
+		id : "${userList[1].pid}",
+		curMoney : parseInt('${userList[1].curMoney}'),
+		playerBetMoney :Math.floor(parseInt('${userList[1].curMoney}')/4),
 		benefit:0,
 		hnum : NaN,
 		hname: "",
 		realHorseNum:""
 	}, {
-		id : "${playerList[2].pid}",
-		curMoney : parseInt('${playerList[2].curMoney}'),
-		playerBetMoney :Math.floor(parseInt('${playerList[2].curMoney}')/4),
+		id : "${userList[2].pid}",
+		curMoney : parseInt('${userList[2].curMoney}'),
+		playerBetMoney :Math.floor(parseInt('${userList[2].curMoney}')/4),
 		benefit:0,
 		hnum : NaN,
 		hname: "",
 		realHorseNum:""
 	}, {
-		id : "${playerList[3].pid}",
-		curMoney : parseInt('${playerList[3].curMoney}'),
-		playerBetMoney :Math.floor(parseInt('${playerList[3].curMoney}')/4),
+		id : "${userList[3].pid}",
+		curMoney : parseInt('${userList[3].curMoney}'),
+		playerBetMoney :Math.floor(parseInt('${userList[3].curMoney}')/4),
 		benefit:0,
 		hnum : NaN,
 		hname: "",

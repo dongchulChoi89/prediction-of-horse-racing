@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import finalhorse.repository.HorseDao;
 import finalhorse.vo.Horse;
+import finalhorse.vo.HorseRecord;
 
 @Service
 public class HorseService {
@@ -14,6 +15,9 @@ public class HorseService {
 	HorseDao dao;
 	public ArrayList<Horse> listHorse(){
 		return dao.listHorse();
+	}
+	public ArrayList<HorseRecord> extractFiveHorse(){
+		return dao.extractFiveHorse();
 	}
 
 }
