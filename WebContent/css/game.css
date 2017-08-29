@@ -11,7 +11,10 @@ body {
 	border-collapse: separate;
 }
 
-
+.btn-restart {
+	color:#111;
+	background-color:aqua;
+}
 .status {
 	height: 200px;
 }

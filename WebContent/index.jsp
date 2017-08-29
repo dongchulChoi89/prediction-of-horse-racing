@@ -117,7 +117,7 @@
         	<div class="container">
             	<!-- Caption Start -->
             	<div class="caption">
-                	<h1 class="text-black white-text wow fadeInUp" data-wow-duration="1.8s">WELCOME TO CHOMOK</h1>
+                	<h1 class="text-black white-text wow fadeInUp" data-wow-duration="1.8s">WELCOME TO<br>PENTACORN HORSE RACETRACK</h1>
                     <h3 class="white-text text-semibold mb-50 wow fadeInUp" data-wow-duration="2.4s">THE BEST SELLING MULTI-PURPOSE TEMPLATE</h3>
                     <button class="white-bg text-uppercase text-bold btn waves-effect subscribe-submit mb-70 wow fadeInUp" data-wow-duration="2.6s">GET STARTED NOW</button>
                     
