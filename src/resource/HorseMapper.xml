@@ -7,6 +7,6 @@
 		select * from (select rownum, A.* from horse_info A) where rownum <![CDATA[ <= ]]> 10
 	</select>
 	<select id="extractFiveHorse" resultMap="horseRecResult">
-		SELECT * FROM (SELECT * FROM HORSE_RECORD ORDER BY DBMS_RANDOM.RANDOM) WHERE ROWNUM <![CDATA[ <= ]]> 5
+		SELECT * FROM FIVEHORSE
 	</select>
 </mapper>

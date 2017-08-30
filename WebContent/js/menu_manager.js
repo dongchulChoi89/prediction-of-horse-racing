@@ -1,6 +1,6 @@
 var readyFlag = false;
 
-function allocHorse() {
+/*function allocHorse() {
     generate = function(length) {
         var arr = [];
         var n;
@@ -13,7 +13,7 @@ function allocHorse() {
         return arr;
     }
     var pool = generate(5);
-}
+}*/
 
 
 // start click
@@ -44,7 +44,7 @@ $(document).ready(function(){
 // start
 function start() {
 	$("#menus").hide("fade", 2000, init);
-	allocHorse();
+	//allocHorse();
 }
 
 // result

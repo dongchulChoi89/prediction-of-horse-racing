@@ -8,7 +8,7 @@ var gameOver = false;										// is the game finished?
 var winner;													// winner number
 var iflag = true;											// is the game finished? - 2
 var mStatus = 0;											// mini horse statue
-var endDistance = 1000;										// end condition of game (distance)
+var endDistance = 1300;										// end condition of game (distance)
 var elapsedTime = 0;
 var frame=50;
 
@@ -76,7 +76,7 @@ var rankPosSize = [1.2, 1, 0.8, 0.6, 0.6];
 var horses = [
 	{
 		number: 1, image: {}, pos: {x: 0, y: canvas.height/2 - 10}, source_size: {w: 128, h: 128},// num, img, pos, src size
-		name:"달린다", sec: {image: {}, pos: {x: canvas.width - 180, y: 50}, sSize: {w: 128, h: 128}, tSize: {w: 128, h: 128}, 
+		name:"원리더", sec: {image: {}, pos: {x: canvas.width - 180, y: 50}, sSize: {w: 128, h: 128}, tSize: {w: 128, h: 128}, 
 		sprite: {x: 0,y: 384}},// mini map horse
 		target_size: {w: 128,h: 128},// score board horse
 		sprite: {sprite_x: 0,sprite_y: 0}, dx: 7, rank: 1,
@@ -85,25 +85,25 @@ var horses = [
 		// moving mechanism
 	},
 	{
-		number: 2, image: {}, pos: {x: 0, y: canvas.height / 2 + 20}, source_size: {w: 128, h: 128}, name:"나도달린다",
+		number: 2, image: {}, pos: {x: 0, y: canvas.height / 2 + 20}, source_size: {w: 128, h: 128}, name:"인키타투스",
 		sec: {image: {}, pos: {x: canvas.width - 180, y: 150}, sSize: {w: 128, h: 128}, tSize: {w: 128, h: 128},
 		sprite: {x: 0, y: 384}}, target_size: {w: 128, h: 128}, sprite: {sprite_x: 0, sprite_y: 0}, dx: 7, rank: 1,
 		possibility: [0.3, 0.3, 0.4], dx_step: [-23, 5, 8], max_break: 5, horseStatue: 8, rankPosition: 1, movedDistance: 0
 	},
 	{
-		number: 3, image: {}, pos: {x: 0, y: canvas.height/2+70}, source_size: {w: 128, h: 128}, name:"같이달린다", sec: {image: {},
+		number: 3, image: {}, pos: {x: 0, y: canvas.height/2+70}, source_size: {w: 128, h: 128}, name:"쾌도여왕", sec: {image: {},
 		pos: {x: canvas.width - 180, y: 200}, sSize: {w: 128, h: 128}, tSize: {w: 128, h: 128}, sprite: {x: 0,y: 384}},
 		target_size: {w: 128, h: 128}, sprite: {sprite_x: 0, sprite_y: 0}, dx: 7, rank: 1, possibility: [0.2, 0.6, 0.2],
 		dx_step: [-13, 2, 7], max_break: 5, horseStatue: 3, rankPosition: 0.8, movedDistance: 0
     },
     {
-		number: 4, image: {}, pos: {x: 0, y: canvas.height/2+120}, source_size: {w: 128, h: 128}, name:"함께라서", sec: {image: {},
+		number: 4, image: {}, pos: {x: 0, y: canvas.height/2+120}, source_size: {w: 128, h: 128}, name:"정상품", sec: {image: {},
 		pos: {x: canvas.width - 180, y: 250}, sSize: {w: 128, h: 128}, tSize: {w: 128, h: 128}, sprite: {x: 0, y: 384}},
 		target_size: {w: 128, h: 128}, sprite: {sprite_x: 0, sprite_y: 0}, dx: 7, rank: 1, possibility: [0.6, 0.2, 0.2],
 		dx_step: [-5, 7, 9], max_break: 5, horseStatue: 6, rankPosition: 0.6, movedDistance: 0
     },
     {
-		number: 5, image: {}, pos: {x: 0, y: canvas.height/2+200}, source_size: {w: 128, h: 128}, name:"더즐겁다", sec: {image: {},
+		number: 5, image: {}, pos: {x: 0, y: canvas.height/2+200}, source_size: {w: 128, h: 128}, name:"초동레이스", sec: {image: {},
 		pos: {x: canvas.width-180, y: 300}, sSize: {w: 128, h: 128}, tSize: {w: 128, h: 128}, sprite: {x: 0,y: 384}},
 		target_size: {w: 128, h: 128}, sprite: {sprite_x: 0, sprite_y: 0}, dx: 7, rank: 1, possibility: [0.5, 0.45, 0.05],
 		dx_step: [-22, 7, 60], max_break: 5, horseStatue: 2, rankPosition: 0.6, movedDistance: 0
@@ -112,7 +112,7 @@ var horses = [
 
 // minimap
 var miniMap = {
-    distance: 1000,
+    distance: 1300,
     image: {},
     sx: 40,
     sy: 60,
@@ -130,16 +130,16 @@ var miniMap = {
 var scoreBoard = {
     box: {
         color: "rgba(100,100,100,0.8)",
-        box_x: canvas.width - 300,
+        box_x: canvas.width - 450,
         box_y: 100,
-        width: 270,
+        width: 420,
         height: 300
     },
     text: {
         text_color: "white",
-        text_x: canvas.width - 280,
+        text_x: canvas.width - 430,
         text_y: 160,
-        text_maxW: 100
+        text_maxW: 300
     },
     n: horses.length
 };
@@ -252,7 +252,7 @@ function collisionDetection() {
 		if (endDistance - elapsedTime <= 0 || rank[0].pos.x >= finishLine.dx) {
 			for (var index = 0; index < horses.length; index++) {
 				if (horses[index].rank == 0) {
-					alert("NO. " + horses[index].number + " horse is Won!!");
+					alert(horses[index].name + "이(가) 1등으로 들어왔습니다!!");
 					winner = horses[index].number; // save a winner number
 				}
 				rankNum[index] = rank[index].number;
@@ -397,19 +397,19 @@ function drawScoreBoard() {
 		{
 			case 0:
 				ctx.font = "36px Arial";
-				ctx.fillText((idx + 1) + "st : " + rank[idx].number, scoreBoard.text.text_x, scoreBoard.text.text_y + 50 * idx, 100);
+				ctx.fillText((idx + 1) + "st : " + rank[idx].name, scoreBoard.text.text_x, scoreBoard.text.text_y + 50 * idx, 300);
 				break;
 			case 1:
 				ctx.font = "31px Arial";
-				ctx.fillText((idx + 1) + "nd : " + rank[idx].number, scoreBoard.text.text_x, scoreBoard.text.text_y + 53 * idx, 100);
+				ctx.fillText((idx + 1) + "nd : " + rank[idx].name, scoreBoard.text.text_x, scoreBoard.text.text_y + 53 * idx, 300);
 				break;
 			case 2:
 				ctx.font = "28px Arial";
-				ctx.fillText((idx + 1) + "rd : " + rank[idx].number, scoreBoard.text.text_x, scoreBoard.text.text_y + 50 * idx, 100);
+				ctx.fillText((idx + 1) + "rd : " + rank[idx].name, scoreBoard.text.text_x, scoreBoard.text.text_y + 50 * idx, 300);
 			    break;
 			default:
 				ctx.font = "24px Arial";
-				ctx.fillText((idx + 1) + "th : " + rank[idx].number, scoreBoard.text.text_x, scoreBoard.text.text_y + 50 * idx, 100);
+				ctx.fillText((idx + 1) + "th : " + rank[idx].name, scoreBoard.text.text_x, scoreBoard.text.text_y + 50 * idx, 300);
 		}
 	}
 	ctx.closePath();

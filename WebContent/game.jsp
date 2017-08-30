@@ -19,7 +19,7 @@
 	</head>
 	<body>
 	<!-- Header Start -->
-		<c:import url="header-to-main.jsp" />
+		<c:import url="header.jsp" />
 	<!-- Header End -->
 	<div id="game-container" class="container-fluid">
 		<div class="row" id="canvas-container">
@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col-md-8" id="menus">
 				<div class="row">
-					<h1>17.02.19 10 Round</h1>
+					<h1>17.08.19 2 Round</h1>
 					<br>
 					<h4>Data를 통해 출전마 16마리 중<br>가능성이 높은 말 5마리를 추출하여 시뮬레이션</h4>
 				</div>
@@ -55,11 +55,13 @@
 							<c:forEach var="hl" items="${fiveHorseList}" varStatus="status">
 								<td class="horseExplain"><img src="img/Horse__${status.index}.png"
 									class="horseImg img-responsive"><br>
-									마명 : ${hl.hname}<br>
-									중량 : 5 ton<br>
-									최근 성적(10 경기)<br>
-									1등 / 2등 / 3등<br>
-									${hl.first} / ${hl.second} / ${hl.third}
+									${hl.name} ( ${hl.age} / ${hl.sex} )<br>
+									말 체중 : ${hl.h_weight} KG<br>
+									기수 : ${hl.player}<br>
+									기수 체중 : ${hl.p_weight} KG<br>
+									누적 상금 : ${hl.tt_prize }만 원<br>
+									누적 1등 / 2등<br>
+									${hl.tt_win1} / ${hl.tt_win2}
 								</td>
 							</c:forEach>
 							</tr>
