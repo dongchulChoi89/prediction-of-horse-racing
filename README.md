@@ -5,3 +5,8 @@
 
 ## Skill Set
 >Used Python, R, JavaScript, JQuery, Bootstrap, HTML5, CSS
+
+## Screenshots
+![Screenshot](portfolio/1.png)
+![Screenshot](portfolio/2.png)
+![Screenshot](portfolio/3.png)
